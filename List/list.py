@@ -1,8 +1,7 @@
-# list to hold the student marks
+# Name : Kunal Patil
+# Enrollment No : SAI&D76
 
 
-
-# assuming student 1 marks as min and man
 def minMax(studentMarkList):
     minMarks = studentMarkList[0]
     maxMarks = studentMarkList[0]
