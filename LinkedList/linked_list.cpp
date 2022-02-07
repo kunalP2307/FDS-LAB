@@ -44,10 +44,13 @@ void insertMember(student* &head,int pnr,string name){
     }
     else{
         student* temp = head;
-        while(temp->next != NULL){
+        while(temp->next->next != NULL){
             temp = temp->next;
         }
+        
+        std->next = temp->next;
         temp->next = std;
+        
     }
     
 }
@@ -80,6 +83,9 @@ void display(student* head){
 void deleteMember(student* &head,int pnr){
 
     student* temp = head;
+    if(temp->next == NULL){
+        head == NULL;
+    }
     while(temp->next->pnrNo != pnr){
         temp = temp->next;
     }
@@ -106,13 +112,16 @@ void deletePresident(student* &head){
         return;
     }
     if(head->next == NULL){
-        deletePresident(head);
+        head = NULL;
+        cout<<"\nDeletion complete if Record is Presnt ";
+        return;
     }
     
     student* toDelete = head;
     head = head->next;
     delete toDelete;
-    
+    cout<<"\nDeletion complete if Record is Presnt ";
+ 
 }
 
 void deleteSecretory(student* &head){
@@ -122,7 +131,8 @@ void deleteSecretory(student* &head){
     }
     
     if(head->next == NULL){
-        deletePresident(head);
+        head = NULL;
+        cout<<"\nDeletion complete if Record is Presnt ";
         return;
     }
     
@@ -135,7 +145,8 @@ void deleteSecretory(student* &head){
     
     std->next = NULL;
     delete temp;
-    
+    cout<<"\nDeletion complete if Record is Presnt ";
+ 
 }
 
 void concatenate(student* &list1,student* &list2){
@@ -286,7 +297,6 @@ int main(){
     cout<<"\n";
     deleteSecretory(head);
     display(head);*/
-    
 
     return 0;
 }
